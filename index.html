@@ -18,7 +18,7 @@
     <header class="jumbotron">
         <h1 class="display-3 text-center"> Weather Dashboard</h1>
     </header>
-    <div class="container-fluid row">
+    <!-- <div class="container-fluid row">
         <div class="col-3 justify-content-center pt-3">
             <div class="search mb-4">
                 <h4 class="justify-content-center pt-2 pl-3">Search City: </h4>
@@ -32,64 +32,101 @@
             <div class="container my-3 col-12" id="searched_container">
 
             </div>
-        </div>
-        <div class="Weather_today col-9 pt-3">
-            <div class="bg-light p-3">
-                <h3 class="justify-content-center text-dark" id="city_name"></h3>
-                <div class="row">
-                    <div class="col-6">
-                        <p id="today_temp"></p>
-                        <p id="today_humidity"></p>
-                        <p id="today_wind"></p>
-                        <img id="today_icon" src="">
-                    </div>
-                </div>
+        </div> -->
+
+    <main class="flex-row justify-space-between">
+        <!-- <div class="col-12 col-md-4">
+            <div class="card">
+                <h2 class="card-header text-uppercase">Search By City</h2>
+                <form id="user-form" class="card-body">
+                    <label class="form-label" for="username">City</label>
+                    <input name="city" id="city" type="text" autofocus="true" class="form-input" />
+                    <button type="submit" class="btn">Search</button>
+                </form>
             </div>
-            <div class="five-day-div bg-light p-3 m-3 w-100">
-                <div class="bg-light">
-                    <h5 class="text-dark">Five Day Weather Forecast</h5>
+            <button class=" btn btn-primary" type="button" id="clear-history">Clear history</button>
+            <ul class="list-group"> -->
+
+                <!-- <div class="Weather_today col-9 pt-3">
+                <div class="bg-light p-3">
+                    <h3 class="justify-content-center text-dark" id="city_name"></h3>
+                    <div class="row">
+                        <div class="col-6">
+                            <p id="today_temp"></p>
+                            <p id="today_humidity"></p>
+                            <p id="today_wind"></p>
+                            <img id="today_icon" src="">
+                        </div>
+                    </div>
+                </div> -->
+                <div class="col-8 col-lg-12">
+                    <h2 class="subtitle">Current Weather:<span id="repo-search-term"></span></h2>
+                    <div id="repos-container" class="list-group"></div>
                 </div>
-                <div class="row justify-content-center">
-                    <div id="day0" class="card-body mx-2 my-2">
-                        <h5 id="0date"></h5>
-                        <p id="0five_day_temp"></p>
-                        <p id="0five_day_humidity"></p>
-                        <img id="0five_day_icon" src="">
+                <div class="col-12 col-md-4">
+                    <div class="card">
+                        <h2 class="card-header text-uppercase">Search By City</h2>
+                        <form id="user-form" class="card-body">
+                            <label class="form-label" for="username">City</label>
+                            <input name="city" id="city" type="text" autofocus="true" class="form-input" />
+                            <button type="submit" class="btn">Search</button>
+                        </form>
                     </div>
-                    <div id="day1" class="card-body mx-2 my-2">
-                        <h5 id="1date"></h5>
-                        <p id="1five_day_temp"></p>
-                        <p id="1five_day_humidity"></p>
-                        <img id="1five_day_icon" src="">
+                    <button class=" btn btn-primary" type="button" id="clear-history">Clear history</button>
+                    <ul class="list-group">
+
+
+                <div class="subtitle">
+                    <div class="row ml-2 border border-dark rounded">
+                        <div class="col-sm-12" id="current-weather">
+                            <h3 class="city-name mb-1 mt-2 bolder" id="current-city"></h3>
+                            <p>Temperature:<span class="current" id="temperature"></span></p>
+                            <p>Humidity:<span class="current" id="humidity"></span></p>
+                            <p>Wind Speed:<span class="current" id="wind-speed"></span></p>
+                        </div>
                     </div>
-                    <div id="day2" class="card-body mx-2 my-2">
-                        <h5 id="2date"></h5>
-                        <p id="2five_day_temp"></p>
-                        <p id="2five_day_humidity"></p>
-                        <img id="2five_day_icon" src="">
-                    </div>
-                    <div id="day3" class="card-body mx-2 my-2">
-                        <h5 id="3date"></h5>
-                        <p id="3five_day_temp"></p>
-                        <p id="3five_day_humidity"></p>
-                        <img id="3five_day_icon" src="">
-                    </div>
-                    <div id="day4" class="card-body mx-2 my-2">
-                        <h5 id="4date"></h5>
-                        <p id="4five_day_temp"></p>
-                        <p id="4five_day_humidity"></p>
-                        <img id="4five_day_icon" src="">
-
-
-
-
-
+                    <div class="card">
+                        <div class="five-day-div bg-light p-3 m-3 w-100">
+                            <div class="bg-light">
+                                <h5 class="text-dark">Five Day Weather Forecast</h5>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div id="day0" class="card-body mx-2 my-2">
+                                    <h5 id="0date"></h5>
+                                    <p id="0five_day_temp"></p>
+                                    <p id="0five_day_humidity"></p>
+                                    <img id="0five_day_icon" src="">
+                                </div>
+                                <div id="day1" class="card-body mx-2 my-2">
+                                    <h3 id="1date"></h3>
+                                    <p id="1five_day_temp"></p>
+                                    <p id="1five_day_humidity"></p>
+                                    <img id="1five_day_icon" src="">
+                                </div>
+                                <div id="day2" class="card-body mx-2 my-2">
+                                    <h3 id="2date"></h3>
+                                    <p id="2five_day_temp"></p>
+                                    <p id="2five_day_humidity"></p>
+                                    <img id="2five_day_icon" src="">
+                                </div>
+                                <div id="day3" class="card-body mx-2 my-2">
+                                    <h3 id="3date"></h3>
+                                    <p id="3five_day_temp"></p>
+                                    <p id="3five_day_humidity"></p>
+                                    <img id="3five_day_icon" src="">
+                                </div>
+                                <div id="day4" class="card-body mx-2 my-2">
+                                    <h3 id="4date"></h3>
+                                    <p id="4five_day_temp"></p>
+                                    <p id="4five_day_humidity"></p>
+                                    <img id="4five_day_icon" src="">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
         </div>
-    </div>
-    </div>
+    </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./assets/script.js"></script>
 </body>
