@@ -1,1 +1,3 @@
-# weather_tracker
+# weather_dashboard
+
+For this assignment, we were creating a weather dashboard that displays current and future weather conditions for any city searched by the user.  After a city is searched, the current temperature humidity and wind conditions are displayed as well as the same conditions over the next 5 days.  This application would suit many people especailly the outdoors type who prefers to plan ahead especially if travelling to a new city.  This is obviously a work in progress as I hit several snags especially with javascript and coding to store data in the console.  I will use these snags as motivation to gain a stronger grasp of the concepts moving forward but I can tell I'll be learning javascript continously for a long time as it is still so foreign to me.  I was one again helped by Leif Hetland, Fred Kamm, my classmates, and tutor, Erik Hoversten.  
