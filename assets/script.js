@@ -28,10 +28,14 @@ var day3Wind = document.querySelector("#day3Wind");
 var day4Wind = document.querySelector("#day4Wind");
 var day5Wind = document.querySelector("#day5Wind");
 
+// var currentWeatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIkey}`
+
+var city = "Chicago";
 
 function makeRequest(city) {
+    var geocodeURL = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${APIkey}`
     // make our API request 
-    fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + city + "9b8b36e29d3934ff62f1a31ee39ae4cc")
+    fetch(geocodeURL)
         .then(response => {
             console.log("Response:", response);
             return response.json();
@@ -41,23 +45,30 @@ function makeRequest(city) {
             console.log("Type: ", typeof data);
 
             // our data is an ARRAY
-            data.forEach(item => {
+          /*  data.forEach(item => {
                 console.log("Name: ", item.name);
                 console.log("City: ", item.address.city);
             })
+            */
             // Lets say we NEED some piece of DATA from our FIRST REQUEST
 
             // If we want to pull our Lat and Lon
-            let lon = 39.952583;
-            let lat = -75.165222;
+            let lon = data[0].lon;
+            let lat = data[0].lat;
+            console.log("Coord: ", lat, lon);
             
-            // fetch('https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}')
-            //     .then()
-            //     .then()
-            //     .catch()
+            // or PASS data to the next calling function   
+           getForecast(lat, lon);
+          // fetch('https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}')   // FORECATS ENDPOINT
+           fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIkey}`)     // CURRENT WEATHER ENDPOINT
+                .then(response => response.json())
+                 .then(data => {
+                    console.log("Current Weather Data: ", data)
+                 })
+                .catch(error => {
+                    throw error;
+                });
 
-             // or PASS data to the next calling function   
-            getForecast(lat, lon);
         })
         .catch(err => {
             if(err) {
@@ -66,14 +77,15 @@ function makeRequest(city) {
         });
         
         // code after fetch method
-    }
+}
     
-    makeRequest();
+makeRequest("charlotte");
     
 function getForecast(lat, lon) {
     fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIkey}`)
         .then(res => res.json())
         .then(data => {
+            console.log("FOrecats Data: ", data);
             console.error.log(data);
         })
         .catch()
